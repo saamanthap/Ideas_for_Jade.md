@@ -21,7 +21,7 @@ Functional characterization of a recently evolved sex determining gene in X. all
     * Map the reads from the de novo assembly to the XL genome version 10; this will help us identify where the transcripts are
     * Plot differentially expressed reads on the XL genome
    
-# First steps - WGS data
+  # First steps - WGS data
   *  We hopefully will get the WGS data back in early October. This is from 5 adult females and 5 adult males. We can use these data to identify the boundaries of the male-specific region which will potentially help us narrow down candidate loci for functional assessment/knockout experiments. Once we get these data, these are the steps we need to take:
       * Trim the reads for each sample (trimmomatic - same as the RNAseq)
       * Map the data for each individual to the XL v10 genome (this generates a bam file)
