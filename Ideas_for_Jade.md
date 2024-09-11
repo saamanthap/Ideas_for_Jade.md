@@ -7,7 +7,7 @@
 # NEW project for Jade (Sept, 2024)
 
 Functional characterization of a recently evolved sex determining gene in X. allofraseri
-* A previous study from our lab (now in review) found that a new male-determining gene exists in X. allofraseri on Chr7L around coordinate 18.2-19.6 bp in the XL reference genome.
+* A previous study from our lab (now in review) found that a new male-determining gene exists in X. allofraseri on Chr7L around coordinate 18.2-19.6 Mbp in the XL reference genome.
 * We have this species at McMaster and at the MBL (USA), so gene editing is possible
 * I have submitted samples for RNAseq from tadpole stage 50 gonads; these data will help us identify genes with male-specific expression at this crucial stage of sexual differentiation
 * I have also submitted 10 samples for whole genome sequencing; these data will help us further demarcate the margins of the male-specific region on Chr7L
