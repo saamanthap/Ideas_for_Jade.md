@@ -1,13 +1,13 @@
 # A few ideas for Jade (original list)
 * Mitonuclear interactions in Xenopus
-* Mapping of sex determining regions in various Xenopus species (X. victorianus, X. fraseri)
-* Germline regulation of sex-linked gene expression in Xenopus (especially X. borealis)
+* Mapping of sex determining regions in various Xenopus species (*X. victorianus*, *X. fraseri*)
+* Germline regulation of sex-linked gene expression in Xenopus (especially *X. borealis*)
 * Subgenome evolution of X. mellotropicalis
 
 # NEW project for Jade (Sept, 2024)
 
-Functional characterization of a recently evolved sex determining gene in X. allofraseri
-* A previous study from our lab (now in review) found that a new male-determining gene exists in X. allofraseri on Chr7L around coordinate 18.2-19.6 Mbp in the XL reference genome.
+Functional characterization of a recently evolved sex determining gene in *X. allofraseri*
+* A previous study from our lab (now in review) found that a new male-determining gene exists in *X. allofraseri* on Chr7L around coordinate 18.2-19.6 Mbp in the XL reference genome.
 * We have this species at McMaster and at the MBL (USA), so gene editing is possible
 * I have submitted samples for RNAseq from 16 tadpoles, stage 50 gonads - each of unknown sex; these data will help us identify genes with male-specific expression at this crucial stage of sexual differentiation
 * I have also submitted 10 samples for whole genome sequencing (5 female, 5 males); these data will help us further demarcate the margins of the male-specific region on Chr7L
