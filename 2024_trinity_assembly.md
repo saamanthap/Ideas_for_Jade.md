@@ -26,3 +26,7 @@ Finished assembly for X. muel is here:
 ```
 /project/6019307/ben/2024_allo_muel_RNAseq/fq/muel_trinity_assembly_all_batches.Trinity.fasta
 ```
+Finished assembly for X. allo is here:
+```
+/project/6019307/ben/2024_allo_muel_RNAseq/fq/allo_trinity_assembly_all_batches.Trinity.fasta
+```
