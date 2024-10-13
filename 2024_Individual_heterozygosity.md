@@ -8,11 +8,21 @@ bam files are here:
 
 First extract a new bam file that has only chr7 for each sample:
 ```
-#!/bin/sh                                                                                                                                           #SBATCH --job-name=samtools_subset_bam                                                                                                              #SBATCH --nodes=1                                                                                                                                   #SBATCH --ntasks-per-node=1                                                                                                                         #SBATCH --time=4:00:00                                                                                                                              #SBATCH --mem=2gb                                                                                                                                   #SBATCH --output=samtools_subset_bam.%J.out                                                                                                         #SBATCH --error=samtools_subset_bam.%J.err                                                                                                          #SBATCH --account=rrg-ben                                                                                                                             
+#!/bin/sh
+#SBATCH --job-name=samtools_subset_bam
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=4:00:00 
+#SBATCH --mem=2gb
+#SBATCH --output=samtools_subset_bam.%J.out 
+#SBATCH --error=samtools_subset_bam.%J.err
+#SBATCH --account=rrg-ben
+
 module load StdEnv/2023  gcc/12.3 samtools/1.20
 samtools view ${1} --region-file ${2} -b > ${1}_${2::-4}.bam
 samtools index ${1}_${2::-4}.bam
 ```
+
 make a file (bamfilename_path.txt) that has the path to the bam file (do this for each one).
 ```
 /home/ben/projects/rrg-ben/ben/2022_Liberia/2023_XT_genomz/ben_scripts/2023_angsd_genomicwindows_pi.sh
