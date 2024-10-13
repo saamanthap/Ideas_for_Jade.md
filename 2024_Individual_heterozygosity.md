@@ -8,6 +8,9 @@ bam files are here:
 
 First extract a new bam file that has only chr7 for each sample:
 ```
+/home/ben/projects/rrg-ben/ben/2024_allo_muel_RNAseq/ben_scripts/2024_samtools_subset_bam.sh
+```
+```
 #!/bin/sh
 #SBATCH --job-name=samtools_subset_bam
 #SBATCH --nodes=1
