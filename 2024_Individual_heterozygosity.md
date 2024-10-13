@@ -6,7 +6,12 @@ bam files are here:
 /home/ben/scratch/2024_allo_muel_RNAseq
 ```
 
-First extract a new bam file that has only chr7 for each sample:
+First extract a new bam file that has only chr7 for each sample. To do this first make a tab-delimited file with the coordinates of the chromosome that you want to extract; e.g.:
+```
+Chr7L 1 139837619
+```
+and name it something meaningful such as `Chr7L_1_139837619.txt`
+
 ```
 /home/ben/projects/rrg-ben/ben/2024_allo_muel_RNAseq/ben_scripts/2024_samtools_subset_bam.sh
 ```
