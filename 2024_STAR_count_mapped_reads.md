@@ -13,8 +13,8 @@
 
 # sbatch 2022_STAR_count.sh inputbam output_counts
 
-module load StdEnv/2020 gcc/9.3.0 star/2.7.9a samtools subread/2.0.3
-module load StdEnv/2023 star/2.7.11b
+module load StdEnv/2023 star/2.7.11b subread/2.0.6 samtools
+
 
 # must use -s 0 because the data are unstranded
 # must use -p because the data are paired
