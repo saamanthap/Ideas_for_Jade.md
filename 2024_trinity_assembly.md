@@ -24,9 +24,9 @@ Trinity --seqType fq --left allo_all__trim_R1.fq.gz --right allo_all__trim_R2.fq
 
 Finished assembly for X. muel is here:
 ```
-/project/6019307/ben/2024_allo_muel_RNAseq/fq/muel_trinity_assembly_all_batches.Trinity.fasta
+/home/ben/projects/rrg-ben/ben/2024_allo_muel_RNAseq/de_novo_assembly_trinity/muel_trinity_assembly_all_batches.Trinity.fasta
 ```
 Finished assembly for X. allo is here:
 ```
-/project/6019307/ben/2024_allo_muel_RNAseq/fq/allo_trinity_assembly_all_batches.Trinity.fasta
+/home/ben/projects/rrg-ben/ben/2024_allo_muel_RNAseq/de_novo_assembly_trinity/allo_trinity_assembly_all_batches.Trinity.fasta
 ```
