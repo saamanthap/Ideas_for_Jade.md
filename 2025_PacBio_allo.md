@@ -5,5 +5,9 @@ We are collaborating with Adam Session on some Xenopus genome assemblies using P
 As a preliminary trial, we can try doing an assembly with canu.
 First unzip the data:
 ```
-/home/ben/2025_PacBio_allo_boum/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8776/outputs/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8776/outputs/m84066_250106_232136_s1_fastq.zip
+unzip /home/ben/2025_PacBio_allo_boum/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8776/outputs/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8776/outputs/m84066_250106_232136_s1_fastq.zip
 ```
+```
+unzip /home/ben/2025_PacBio_allo_boum/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell2/Fasta_Fastq_8810/outputs/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell2/Fasta_Fastq_8810/outputs/m84066_250114_225413_s2_fastq.zip
+```
+
