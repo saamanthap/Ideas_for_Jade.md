@@ -25,3 +25,10 @@ This is because the software was failing to recognize the version of java on inf
 canu -p allo_canu genomeSize=3.4g -maxThreads=8 -pacbio /home/ben/2025_PacBio_allo_boum/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8776/outputs/m84066_250106_232136_s1.fasta /home/ben/2025_PacBio_allo_boum/PB1192_01_BJE4902-B_Xallofraseri_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell2/Fasta_Fastq_8810/outputs/m84066_250114_225413_s2.fasta
 ```
 maybe add this 'mhapPipe=false purgeOverlaps=false saveOverlaps=true' according to:https://github.com/marbl/canu/issues/2070
+
+
+To run them independently I made another folder and installed canu separately for boum.
+And for boum:
+```
+canu -p boum_canu genomeSize=6.8g -maxThreads=8 -pacbio /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8777/outputs/m84066_250114_225413_s2.fasta /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell2/Fasta_Fastq_8817/outputs/m84066_250115_005718_s3.fasta /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell3/Fasta_Fastq_8818/outputs/m84066_250115_030030_s4.fasta /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell4/8869_Fasta_Fastq/outputs/m84066_250205_075344_s1.fasta
+```
