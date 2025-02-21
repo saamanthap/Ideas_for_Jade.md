@@ -10,6 +10,8 @@ Make a bed file from output
 ```
 cut -f2,9,10 allo_notch4_to_pacbio6.out > allo_notch4_to_pacbio6.bed
 ```
+Now manually adjust the bed file so the start is lower than the stop.
+
 Extract fasta seqs
 ```
 bedtools getfasta -fi m84066_250106_232136_s1.fasta -bed allo_notch4_to_pacbio6.bed -fo allo_notch4_to_pacbio6.fasta
