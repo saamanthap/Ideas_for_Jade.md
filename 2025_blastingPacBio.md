@@ -18,5 +18,5 @@ bedtools getfasta -fi m84066_250106_232136_s1.fasta -bed allo_notch4_to_pacbio6.
 ```
 Align the fasta seqs
 ```
-mafft command here
+ mafft --adjustdirectionaccurately allo_notch4_to_pacbio6.fasta > allo_notch4_to_pacbio6_align.fasta
 ```
