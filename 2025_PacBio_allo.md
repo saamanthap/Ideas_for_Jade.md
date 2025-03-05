@@ -32,3 +32,10 @@ And for boum:
 ```
 canu -p boum_canu genomeSize=6.8g -maxThreads=8 -pacbio /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell1/Fasta_Fastq_8777/outputs/m84066_250114_225413_s2.fasta /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell2/Fasta_Fastq_8817/outputs/m84066_250115_005718_s3.fasta /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell3/Fasta_Fastq_8818/outputs/m84066_250115_030030_s4.fasta /home/ben/2025_PacBio_allo_boum/PB1192_02_BJE4901-B_Xboumbaensis_Frog_LBSS9kbLC_HiFiv3_Revio-SPRQ_cell4/8869_Fasta_Fastq/outputs/m84066_250205_075344_s1.fasta
 ```
+
+# Adam assembly
+
+Adam send us an assembly from canu that has "bubbles" in it that represent alternate alleles in heterozygous regions. I have removed these like this (on info2020):
+```
+seqkit grep -v -nrp "suggestBubble=yes" allo.fasta.contigs.fasta.gz > allo.fasta.contigs_nobubbles.fasta.gz
+```
