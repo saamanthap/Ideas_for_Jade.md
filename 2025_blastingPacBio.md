@@ -5,9 +5,9 @@ First make a blast database out of the assembly:
 makeblastdb -in allo.fasta.contigs_nobubbles.fasta.gz -dbtype nucl -out allo.fasta.contigs_nobubbles.fasta.gz_blastable
 ```
 
-Using the notch4 seq that Jade generated as a query (also do the laevis seq and then align output from both):
+Using the notch4 seq that Jade generated as a query (also do the laevis seq and then align output from both). Use dc-megablast to pull out diverged seqs:
 ```
-blastn -query allo_notch4_region.fa -db allo.fasta.contigs_nobubbles.fasta.gz_blastable -outfmt 6 -out allo_notch4_to_pacbio6.out
+blastn -query allo_notch4_region.fa -db allo.fasta.contigs_nobubbles.fasta.gz_blastable -task dc-megablast -outfmt 6 -out allo_notch4_to_pacbio6.out
 ```
 Make a bed file from output
 ```
