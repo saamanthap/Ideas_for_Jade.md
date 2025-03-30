@@ -171,3 +171,10 @@ print "Size of hash5 ",$size,"\n";
 
 close OUTFILE;
 ```
+
+# Summarize output
+
+This will provide a summary of the number of positions in each contig with zero coverage:
+```
+awk -F '\t' '{print $1}' all_five_females_zero_.txt | sort | uniq -c | sort -nr > all_five_females_zero_summary.txt
+```
