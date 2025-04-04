@@ -25,5 +25,5 @@ This produces a file that can be downloaded, opened with excel, and sorted by co
 We can check the coverage of the exons of this locus in the WGS bam files like this:
 
 ```
-samtools depth -aa -b ./allo_fam20_CDS.bed Z23732_sorted_rg_dedup.bam > Z23732_sorted_rg_dedup.bam_fam20_CDS_coverage.out
+samtools depth -aa -b tig00011029_coding_near_1Mb.bed -f allo_WGS_bamfilez.txt > tig00011029_coding_near_1Mb.bed_coverage.out
 ```
