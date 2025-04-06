@@ -20,7 +20,7 @@ And now blast:
 blastn -query ../../2021_XL_v10_refgenome/XL_CDS_only.fasta -db tig00008587_1_10920835.fasta_blastable -outfmt 6 -out XL_CDS_to_tig00008587_1_10920835_annotation_out.txt
 ```
 
-This produces a file that can be downloaded, opened with excel, and sorted by column 9 (sstart, "I") and column 3 (pident "C"). Then one can check the region of interest. For example, around 1Mb on contig tig00011029, the cuzd1.2 appears to be located. 
+This produces a file that can be downloaded, opened with excel, and sorted by column 9 (sstart, "I") and column 3 (pident "C"). Before sorting I highlighted the matches to CDS on Chr7L because this is what is expected for these chromosomes. Then one can check the region of interest. For example, around 1Mb on contig tig00011029, the cuzd1.2 appears to be located. 
 
 We can check the coverage of the exons of this locus in the WGS bam files like this:
 
