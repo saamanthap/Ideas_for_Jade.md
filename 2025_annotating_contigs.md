@@ -1,6 +1,6 @@
 # Annotating contigs
 
-I am using XL CDS to annotate contigs in allo. I made a fasta file of all CDS from XL here:
+I am using XL CDS to annotate contigs in allo. Using bedtools, I made a fasta file of all CDS from XL here:
 ```
 /home/ben/projects/rrg-ben/ben/2021_XL_v10_refgenome/XL_CDS_only.fasta
 ```
