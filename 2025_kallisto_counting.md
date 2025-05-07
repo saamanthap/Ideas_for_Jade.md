@@ -53,7 +53,7 @@ kallisto index -i ${1}.idx ${1}
 module load StdEnv/2020 intel/2020.1.217 kallisto/0.46.1
 
 #  Always use for-loop, prefix glob, check if exists file.
-for file in $1/*__trim_R1.fq.gz ; do         # Use ./* ... NEVER bare *
+for file in $2/*__trim_R1.fq.gz ; do         # Use ./* ... NEVER bare *
     if [ -e "$file" ] ; then   # Check whether file exists.
         kallisto quant -b 100 -i ${1} -o ${file::-15}_kallisto_boot_out ${file::-15}__trim_R1.fq.gz ${file::-15}__trim_R2.fq.gz # I don't think we can use paired and single reads concurrently
 	# ${file::-15}__trim_single_R1.fq.gz ${file::-15}__trim_single_R2.fq.gz
