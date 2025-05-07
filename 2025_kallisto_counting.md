@@ -3,6 +3,14 @@
 /home/ben/projects/rrg-ben/ben/2024_allo_muel_RNAseq/ben_scripts
 ```
 
+# Sex genotypes
+Samantha Potts genotyped the sex of all ten tads using two markers; both were completely consistent:
+```
+In total, there are six females and four males.
+Females: tadpoles 31, 32, 34, 35, 36, 37
+Males: tadpoles 33, 38, 39, 41
+```
+
 # Generating pseudo counts for de novo transcriptome assemblies
 
 I used trinity to generate de novo transcriptome assemblies for X. muelleri and X. allofraseri tad stage 50 gonads.
