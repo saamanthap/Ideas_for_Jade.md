@@ -6,9 +6,9 @@
 # Sex genotypes
 Samantha Potts genotyped the sex of all ten tads using two markers; both were completely consistent:
 ```
-In total, there are six females and four males.
-Females: tadpoles 31, 32, 34, 35, 36, 37
-Males: tadpoles 33, 38, 39, 41
+In total, there are seven females and three males.
+Females: tadpoles 31, 32, 34, 35, 36, 37,42
+Males: tadpoles 33, 38, 39
 ```
 
 # Generating pseudo counts for de novo transcriptome assemblies
