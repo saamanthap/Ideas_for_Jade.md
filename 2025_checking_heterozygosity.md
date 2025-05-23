@@ -23,3 +23,8 @@ and blasted this against the allofraseri assembly *with* bubbles
 ```
 blastn -query XL_Chr7L_hotspot_for_allo.fa -db allo.fasta.contigs.fasta.gz__blastable -outfmt 6 -out XL_Chr7L_hotspot_for_allo_to_allo_withbubbles.txt
 ```
+I am now focusing only on exons that are at least 1000bp. So I filtered the blast output based on the alignment length column 4 like this:
+```
+awk -F "    " '$4>1000' XL_Chr7L_hotspot_for_allo_to_allo_withbubbles.txt > XL_Chr7L_hotspot_for_allo_to_allo_withbubbles_onlybigexons.txt
+```
+In the command above, we need to specify that the delimiter is a tab, so this tab has to be inserted between the double quotes using control-v and then tab.
