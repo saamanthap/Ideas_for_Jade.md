@@ -8,3 +8,11 @@ In this directory on graham, I have set up databases of the XL genome seq, the X
 /home/ben/projects/rrg-ben/for_Sam/2025_XL_transcriptome
 /home/ben/projects/rrg-ben/for_Sam/human_transcriptome
 ```
+
+In each of these directories I have made a blast database like this:
+```
+makeblastdb -in XL_v10.1_concatenatedscaffolds.fa -dbtype nucl -out XL_v10.1_concatenatedscaffolds.fa_blastable
+makeblastdb -in xlaevisMRNA.fasta -dbtype nucl -out xlaevisMRNA.fasta_blastable
+makeblastdb -in gencode.v42.transcripts.fa -dbtype nucl -out gencode.v42.transcripts.fa_blastable
+```
+This allows us to find the match in these databases of each sequence in a query.
