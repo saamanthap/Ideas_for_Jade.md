@@ -31,9 +31,17 @@ Now use this file to grep the headers:
 for i in `cat ./example_list_of_differentially_expressed_transcripts.txt `; do grep -i $i ../muel/de_novo_assembly_trinity/muel_trinity_assembly_all_batches.Trinity.fasta >> names.txt;done
 ```
 Now remove the greater than sign:
-
+```
 sed -i 's/>//g' names.txt
+```
 Now use seqtk to extract the fasta entries
-
+```
 module load StdEnv/2020 seqtk/1.3
-seqtk subseq ../XL_v10_transcriptome/XENLA_10.1_GCF_XBmodels.transcripts.fa ccdc_kallisto_edgeR_sequence_file > ccdc_kallisto_edgeR_sequence_file_output.fasta
+seqtk subseq ../muel/de_novo_assembly_trinity/muel_trinity_assembly_all_batches.Trinity.fasta names.txt > DE_genez.fasta
+```
+OK now we should have a file with the sequences of each of the differentially expressed genes that is called "DE_genez.fasta". This can be used to query a blast database such as the three above to get information about locations and annotations. For example:
+
+```
+module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
+blastn -query DE_genez.fasta -db XL_v10.1_concatenatedscaffolds.fa_blastable -outfmt 6 -out DE_genez_to_XL_genome.out
+```
