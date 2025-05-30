@@ -43,3 +43,16 @@ OK now we should have a file with the sequences of each of the differentially ex
 module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
 blastn -query DE_genez.fasta -db XL_v10.1_concatenatedscaffolds.fa_blastable -outfmt 6 -out DE_genez_to_XL_genome.out
 ```
+Pull out the results that blast to Chr4L (muelleri sex chromosome) and write in a new file:
+```
+grep "Chr4L" DE_genez_to_XL_genome.out > Chr4L_DE_genez_to_XL_v10_refgenome
+```
+Now pull out the results that fall in the 110000000 - 147000000 region: 
+(The 9th and 10th field of each line contain these values)
+```
+awk '$9 >= 110000000 && $10 <= 147000000' Chr4L_DE_genez_to_XL_v10_refgenome.out > fem_region_DE_genez_to_XL_genome.out
+ ```
+The last two commands could have been accomplished together (for next time):
+```
+grep "Chr4L" DE_genez_to_XL_genome.out | awk '$9 >= 110000000 && $10 <= 147000000' > fem_region_DE_genez_to_XL_genome.out
+```
