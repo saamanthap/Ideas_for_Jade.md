@@ -56,3 +56,12 @@ The last two commands could have been accomplished together (for next time):
 ```
 grep "Chr4L" DE_genez_to_XL_genome.out | awk '$9 >= 110000000 && $10 <= 147000000' > fem_region_DE_genez_to_XL_genome.out
 ```
+Since each transcript has many blast results, I want to print out unique transcript names. (I will copy them from the terminal and paste them into a file called "unique_names_fem_region_transcripts_muel.txt")
+```
+ awk 'NR>1{a[$1]++} END{for(b in a) print b}' fem_region_DE_genez_to_XL_genome.out
+```
+Now grab the sequences associated with each transcript name and store them in a new fasta file: 
+```
+for i in $(cat ../2021_XL_v10_refgenome/unique_names_fem_region_transcripts_muel.txt); do grep -i -A1 "$i " ./DE_genez.fasta >> fem_DE_genez.fasta;done
+```
+
