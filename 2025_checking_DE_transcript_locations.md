@@ -62,7 +62,7 @@ grep "Chr4L" DE_genez_to_XL_genome.out | awk '$9 >= 110000000 && $10 <= 14700000
 ```
 Since each transcript has many blast results, I want to print out unique transcript names. (I will copy them from the terminal and paste them into a file called "unique_names_fem_region_transcripts_muel.txt")
 ```
- awk 'NR>1{a[$1]++} END{for(b in a) print b}' fem_region_DE_genez_to_XL_genome.out
+ awk '{a[$1]++} END{for(b in a) print b}' fem_region_DE_genez_to_XL_genome.out
 ```
 Now grab the sequences associated with each transcript name and store them in a new fasta file: 
 ```
@@ -76,6 +76,34 @@ In order to get gene annotation info, blast the shortlist of fasta files against
 module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
 blastn -query ../muel/fem_DE_genez.fasta -db gencode.v42.transcripts.fa_blastable -outfmt 6 -out fem_DE_genez_to_human_transcriptome.out
 ```
+Or, try blasting against the laevis transcriptome (which contains annotations!):
+```
+blastn -query ../muel/fem_DE_genez.fasta -db xlaevisMRNA.fasta_blastable -outfmt 6 -out fem_DE_genez_to_XL_transcriptome.out
+```
+In order to print out unique gene IDs (use whatever blast outfile you want IDs from): 
+```
+awk -F '|' '{a[$4]++} END{for(b in a) print b}' fem_DE_genez_to_XL_transcriptome.out
+```
+I copy and pasted these gene IDs into https://www.pantherdb.org/ which finds genes associated with these transcripts (although not all IDs found matches). I exported all the matches as a text file and copy and pasted them into a file called "GO_fem_genes.txt" so that I can parse them to pull out the gene acronyms.    
 
+Each gene is on its own line with the gene acronym in the second filed (pipe delimited). Example of the format:
+```
+XENLA|Gene=dab2.S|UniProtKB=Q6PAV7      NM_001089785,BC060027       MGC68686 protein;dab2.S;PTN009211979;orthologs  DISABLED HOMOLOG 2 (PTHR47695:SF5)          Xenopus laevis
+XENLA|Gene=abl1.L|UniProtKB=V5NT95      XM_018241388    Tyrosine-protein kinase;abl1.L;PTN009099795;orthologs       TYROSINE-PROTEIN KINASE ABL1 (PTHR24418:SF438)      non-receptor tyrosine protein kinase(PC00168)       Xenopus laevis
+```
+Get all the gene names:   
+```
+grep -oP 'Gene=\K[^|]+' GO_fem_genes.txt
 
-
+Notes: 
+-o means that only the matched parts of the line are printed 
+P allows you to use the \K option 
+Match the string Gene= 
+\K means that everything matched so far (meaning the string 'Gene=' is not printed out with the final output 
+[^] specifies to match all the characters that are not a pipe (this way it will stop matching as soon as it hits the pipe 
++ means you can match any number of characters before the pipe
+```
+Pipe the command into sed to make it into a comma-separated list, which could be more easily searchable?: 
+```
+grep -oP 'Gene=\K[^|]+' GO_fem_genes.txt | sed 's/$/,/g' | tr '\n' ' ' > newfile.txt
+```
