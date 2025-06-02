@@ -43,6 +43,7 @@ OK now we should have a file with the sequences of each of the differentially ex
 module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
 blastn -query DE_genez.fasta -db XL_v10.1_concatenatedscaffolds.fa_blastable -outfmt 6 -out DE_genez_to_XL_genome.out
 ```
+# Filtering the blast results 
 Pull out the results that blast to Chr4L (muelleri sex chromosome) and write in a new file:
 ```
 grep "Chr4L" DE_genez_to_XL_genome.out > Chr4L_DE_genez_to_XL_v10_refgenome
@@ -63,5 +64,11 @@ Since each transcript has many blast results, I want to print out unique transcr
 Now grab the sequences associated with each transcript name and store them in a new fasta file: 
 ```
 for i in $(cat ../2021_XL_v10_refgenome/unique_names_fem_region_transcripts_muel.txt); do grep -i -A1 "$i " ./DE_genez.fasta >> fem_DE_genez.fasta;done
+```
+# Getting annotations 
+In order to get gene annotation info, blast the shortlist of fasta files against the human transcriptome: 
+```
+module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
+blastn -query ../muel/fem_DE_genez.fasta -db gencode.v42.transcripts.fa_blastable -outfmt 6 -out fem_DE_genez_to_human_transcriptome.out
 ```
 
