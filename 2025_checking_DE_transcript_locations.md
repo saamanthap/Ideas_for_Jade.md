@@ -38,10 +38,13 @@ module load StdEnv/2020 seqtk/1.3
 seqtk subseq ../muel/de_novo_assembly_trinity/muel_trinity_assembly_all_batches.Trinity.fasta names.txt > DE_genez.fasta
 ```
 OK now we should have a file with the sequences of each of the differentially expressed genes that is called "DE_genez.fasta". This can be used to query a blast database such as the three above to get information about locations and annotations. For example:
-
 ```
 module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
 blastn -query DE_genez.fasta -db XL_v10.1_concatenatedscaffolds.fa_blastable -outfmt 6 -out DE_genez_to_XL_genome.out
+```
+Alternatively, use a longer command to include the gene name in the blast results (shown here using the laevis transcriptome): 
+```
+blastn -query ../muel/DE_genez.fasta -db xlaevisMRNA.fasta_blastable -outfmt "6 qseqid sseqid stitle pident length mismatch gapopen qstart qend sstart send evalue bitscore" -out DE_genez_to_XL_transcriptome.out
 ```
 # Filtering the blast results 
 Pull out the results that blast to Chr4L (muelleri sex chromosome) and write in a new file:
@@ -66,9 +69,13 @@ Now grab the sequences associated with each transcript name and store them in a 
 for i in $(cat ../2021_XL_v10_refgenome/unique_names_fem_region_transcripts_muel.txt); do grep -i -A1 "$i " ./DE_genez.fasta >> fem_DE_genez.fasta;done
 ```
 # Getting annotations 
-In order to get gene annotation info, blast the shortlist of fasta files against the human transcriptome: 
+In order to get gene annotation info, blast the shortlist of fasta files against the human transcriptome:  
+
+*Note: only one gene found any matches - the human and muelleri transcriptomes may be too diverged? Or I may have filtered the transcripts too stringently*
 ```
 module load StdEnv/2020  gcc/9.3.0 blast+/2.14.0
 blastn -query ../muel/fem_DE_genez.fasta -db gencode.v42.transcripts.fa_blastable -outfmt 6 -out fem_DE_genez_to_human_transcriptome.out
 ```
+
+
 
