@@ -72,7 +72,6 @@ for i in $(cat ../2021_XL_v10_refgenome/unique_names_fem_region_transcripts_muel
 One way to ensure that transcripts match genes and not repetitive elements is to filter by the ration of alignment length to query length. First generate an outfile that contains the query length (qlen): 
 ```
 blastn -query DE_genez.fasta -db XL_v10.1_concatenatedscaffolds.fa_blastable -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen" -out DE_genez_to_XL_genome.out
-```
 
 ```
 # Getting annotations 
