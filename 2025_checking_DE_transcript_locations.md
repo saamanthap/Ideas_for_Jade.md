@@ -73,9 +73,13 @@ One way to ensure that transcripts match genes and not repetitive elements is to
 ```
 blastn -query DE_genez.fasta -db XL_v10.1_concatenatedscaffolds.fa_blastable -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen" -out DE_genez_to_XL_genome.out
 ```
-Now add another column at the end with the ratio alignment length/query length: (STILL TESTING... NEED TO FIX DELIMITERS)
+Now add another column at the end with the ratio alignment length/query length: (RENAME OUTPUT FILE)
 ```
-awk -F'\t' '{$NF = $NF "\t" ($4 / $13); print}' qlen_DE_genez_to_XL_transcriptome.out > test.txt
+awk -F'\t' 'BEGIN {OFS = "\t"} {$NF = $NF "\t" ($4 / $13); print}' qlen_DE_genez_to_XL_transcriptome.out > test
+```
+Filter by the ratio (choose an appropriate threshhold):
+```
+awk '$14 >= 0.9' test > 2test
 ```
 # Getting annotations 
 In order to get gene annotation info, blast the shortlist of fasta files against the human transcriptome:  
