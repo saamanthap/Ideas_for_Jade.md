@@ -89,11 +89,16 @@ Or, try blasting against the laevis transcriptome (which contains annotations!):
 ```
 blastn -query ../muel/fem_DE_genez.fasta -db xlaevisMRNA.fasta_blastable -outfmt 6 -out fem_DE_genez_to_XL_transcriptome.out
 ```
-In order to print out unique gene IDs (use whatever blast outfile you want IDs from): 
+In order to print out *unique* gene IDs (use whatever blast outfile you want IDs from): 
 ```
 awk -F '|' '{a[$4]++} END{for(b in a) print b}' fem_DE_genez_to_XL_transcriptome.out
 ```
-I copy and pasted these gene IDs into https://www.pantherdb.org/ which finds genes associated with these transcripts (although not all IDs found matches). I exported all the matches as a text file and copy and pasted them into a file called "GO_fem_genes.txt" so that I can parse them to pull out the gene acronyms.    
+Or non-unique gene IDs:  
+(This code was done for a blast to the human transcriptome which has gene acronyms in the sixth pipe-delimited field - blasting against the human transcriptome actually yields gene names rather than IDs!)
+```
+awk -F '|' '{a[$6]++} END{for(b in a) print b}' testblastn.out | sort
+```
+(For blasts against the laevis transcriptome which yield gene IDs rather than names) I copy and pasted these gene IDs into https://www.pantherdb.org/ which finds genes associated with these transcripts (although not all IDs found matches). I exported all the matches as a text file and copy and pasted them into a file called "GO_fem_genes.txt" so that I can parse them to pull out the gene acronyms.    
 
 Each gene is on its own line with the gene acronym in the second filed (pipe delimited). Example of the format:
 ```
