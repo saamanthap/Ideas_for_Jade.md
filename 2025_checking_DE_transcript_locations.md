@@ -79,7 +79,7 @@ awk -F'\t' 'BEGIN {OFS = "\t"} {$NF = $NF "\t" ($4 / $13); print}' qlen_DE_genez
 ```
 Filter by the ratio (choose an appropriate threshhold):
 ```
-awk '$14 >= 0.9' test > 2test
+awk '$14 >= 0.9' test > test 
 ```
 # Getting annotations 
 In order to get gene annotation info, blast the shortlist of fasta files against the human transcriptome:  
@@ -100,7 +100,7 @@ awk -F '|' '{a[$4]++} END{for(b in a) print b}' fem_DE_genez_to_XL_transcriptome
 Or non-unique gene IDs:  
 (This code was done for a blast to the human transcriptome which has gene acronyms in the sixth pipe-delimited field - blasting against the human transcriptome actually yields gene names rather than IDs!)
 ```
-awk -F '|' '{a[$6]++} END{for(b in a) print b}' testblastn.out | sort
+awk -F '|' '{print $6}' testblastn.out | sort
 ```
 (For blasts against the laevis transcriptome which yield gene IDs rather than names) I copy and pasted these gene IDs into https://www.pantherdb.org/ which finds genes associated with these transcripts (although not all IDs found matches). I exported all the matches as a text file and copy and pasted them into a file called "GO_fem_genes.txt" so that I can parse them to pull out the gene acronyms.    
 
