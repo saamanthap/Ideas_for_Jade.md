@@ -79,7 +79,11 @@ awk -F'\t' 'BEGIN {OFS = "\t"} {$NF = $NF "\t" ($4 / $13); print}' qlen_DE_genez
 ```
 Filter by the ratio (choose an appropriate threshhold):
 ```
-awk '$14 >= 0.9' test > test 
+awk '$14 >= 0.9' test > test
+```
+You could do most of this in one pipeline to avoid intermediate files (this is an example for a blastn agains the laevis transcriptome):
+```
+blastn -task blastn -query ../muel/0.001_male_DE_genez.fasta -db XENLA_10.1_Xenbase.transcripts.fa.gz_blastable -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen" | awk -F'\t' 'BEGIN {OFS = "\t"} {$NF = $NF "\t" ($4 / $13); print}' | awk '$14 >= 0.9'| awk -F'|' '{a[$2]++} END{for(b in a) print b}'
 ```
 # Getting annotations 
 In order to get gene annotation info, blast the shortlist of fasta files against the human transcriptome:  
